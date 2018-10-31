@@ -57,7 +57,7 @@ public class GUI implements ActionListener {
 		frame.getContentPane().setLayout(null);
 		
 		//Still need to create IDNum
-		x
+		
 		
 		
 		
@@ -78,16 +78,18 @@ public class GUI implements ActionListener {
 		 btnGrabClasses = new JButton("Grab Classes");
 		btnGrabClasses.setBounds(256, 26, 137, 22);
 		frame.getContentPane().add(btnGrabClasses);
-		
-		
-		
-	}
-	public void UseButton() {
 		btnGrabClasses.addActionListener(this);
+		btnGrabClasses.setActionCommand("enable");
+		
+		
 	}
+	
+			
 
 public void actionPerforment(ActionEvent e) {
 	//Check if button was clicked 
+	if("enable".equals(e.getActionCommand())) {
+	btnGrabClasses.setText("TEST");
 	int count=0;
 	if(e.getSource()==btnGrabClasses);
 	String IDNum = textField.getText();
@@ -99,8 +101,13 @@ public void actionPerforment(ActionEvent e) {
 		while((line = bufferedReader.readLine()) != null) {
 			count++;
 			//How can i print 2 lines? oh wait it will be two lines 
-		    textArea.append(line);
-}   bufferedReader.close(); 
+		    //textArea.append(line);
+		    System.out.println("\n" + line);
+		    textArea.read( bufferedReader, null );
+		}
+bufferedReader.close(); 
+	file.close();
+	
 	} catch (FileNotFoundException e2) {
 		System.out.println(
                 "Unable to open file '" + 
@@ -114,6 +121,13 @@ public void actionPerforment(ActionEvent e) {
 	}
 	// Always close files.
                      
+}}
+
+
+@Override
+public void actionPerformed(ActionEvent arg0) {
+	// TODO Auto-generated method stub
+	
 }
 	
 
