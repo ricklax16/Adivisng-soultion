@@ -86,49 +86,48 @@ public class GUI implements ActionListener {
 	
 			
 
-public void actionPerforment(ActionEvent e) {
-	//Check if button was clicked 
-	if("enable".equals(e.getActionCommand())) {
-	btnGrabClasses.setText("TEST");
-	int count=0;
-	if(e.getSource()==btnGrabClasses);
-	String IDNum = textField.getText();
-	String line = null;
-	FileReader file;
-	try {
-		file = new FileReader(IDNum+".txt");
-		BufferedReader bufferedReader = new BufferedReader(file);
-		while((line = bufferedReader.readLine()) != null) {
-			count++;
-			//How can i print 2 lines? oh wait it will be two lines 
-		    //textArea.append(line);
-		    System.out.println("\n" + line);
-		    textArea.read( bufferedReader, null );
-		}
-bufferedReader.close(); 
-	file.close();
-	
-	} catch (FileNotFoundException e2) {
-		System.out.println(
-                "Unable to open file '" + 
-                IDNum + "'");
-	} 
-	
-     catch (IOException e1) {
-    	 System.out.println(
-                 "Error reading file '" 
-                 + IDNum + "'"); 
-	}
-	// Always close files.
-                     
-}}
+
 
 
 @Override
 public void actionPerformed(ActionEvent arg0) {
-	// TODO Auto-generated method stub
+	if("enable".equals(arg0.getActionCommand())) {
+		btnGrabClasses.setText("TEST");
+		int count=0;
+		if(arg0.getSource()==btnGrabClasses);
+		String IDNum = textField.getText();
+		String line = null;
+		FileReader file;
+		try {
+			file = new FileReader(IDNum+".txt");
+			BufferedReader bufferedReader = new BufferedReader(file);
+			while((line = bufferedReader.readLine()) != null) {
+				count++;
+				//How can i print 2 lines? oh wait it will be two lines 
+			    //textArea.append(line);
+			    textArea.read( bufferedReader, null );
+			}
+	bufferedReader.close(); 
+		file.close();
+		
+		} catch (FileNotFoundException e2) {
+			System.out.println(
+	                "Unable to open file '" + 
+	                IDNum + "'");
+		} 
+		
+	     catch (IOException e1) {
+	    	 System.out.println(
+	                 "Error reading file '" 
+	                 + IDNum + "'"); 
+		}
+		// Always close files.
+	                     
+	}
 	
 }
+
+
 	
 
 }
