@@ -23,6 +23,8 @@ public class GUI implements ActionListener {
 	private JTextField textField;
 	private JButton btnGrabClasses;
 	private JTextArea textArea;
+	private JButton btnUpdateFile;
+	public String IDNum;
 	/**
 	 * Launch the application.
 	 */
@@ -78,9 +80,13 @@ public class GUI implements ActionListener {
 		 btnGrabClasses = new JButton("Grab Classes");
 		btnGrabClasses.setBounds(256, 26, 137, 22);
 		frame.getContentPane().add(btnGrabClasses);
-		btnGrabClasses.addActionListener(this);
+		btnGrabClasses.addActionListener(new load());
 		btnGrabClasses.setActionCommand("enable");
 		
+		btnUpdateFile = new JButton("Update File");
+		btnUpdateFile.setBounds(117, 587, 97, 25);
+		frame.getContentPane().add(btnUpdateFile);
+		btnUpdateFile.addActionListener(new update());
 		
 	}
 	
@@ -88,14 +94,13 @@ public class GUI implements ActionListener {
 
 
 
-
-@Override
+public class load implements ActionListener{
 public void actionPerformed(ActionEvent arg0) {
 	if("enable".equals(arg0.getActionCommand())) {
 		btnGrabClasses.setText("TEST");
 		int count=0;
 		if(arg0.getSource()==btnGrabClasses);
-		String IDNum = textField.getText();
+		IDNum = textField.getText();
 		String line = null;
 		FileReader file;
 		try {
@@ -126,8 +131,20 @@ public void actionPerformed(ActionEvent arg0) {
 	}
 	
 }
+}
+public class update implements ActionListener{
+public void actionPerformed(ActionEvent e) {
+	 try {
+         
+         BufferedWriter outFile = new BufferedWriter(new FileWriter(IDNum+".txt"));
+         outFile.write(textArea.getText()); 
+
+         outFile.close();
+     } catch (IOException ex) {
+     }
 
 
-	
 
+}
+}
 }
