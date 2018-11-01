@@ -19,7 +19,7 @@ import javax.swing.JButton;
 
 public class GUI implements ActionListener {
 
-	private JFrame frame;
+	private JFrame frame1;
 	private JTextField textField;
 	private JButton btnGrabClasses;
 	private JTextArea textArea;
@@ -33,7 +33,7 @@ public class GUI implements ActionListener {
 			public void run() {
 				try {
 					GUI window = new GUI();
-					window.frame.setVisible(true);
+					window.frame1.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -53,10 +53,10 @@ public class GUI implements ActionListener {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 1072, 696);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frame1 = new JFrame();
+		frame1.setBounds(100, 100, 1072, 696);
+		frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame1.getContentPane().setLayout(null);
 		
 		//Still need to create IDNum
 		
@@ -66,26 +66,26 @@ public class GUI implements ActionListener {
 		
 		 textArea = new JTextArea();
 		textArea.setBounds(56, 77, 906, 474);
-		frame.getContentPane().add(textArea);
+		frame1.getContentPane().add(textArea);
 		
 		textField = new JTextField();
 		textField.setBounds(117, 26, 116, 22);
-		frame.getContentPane().add(textField);
+		frame1.getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblIdNumber = new JLabel("ID:");
 		lblIdNumber.setBounds(78, 29, 27, 16);
-		frame.getContentPane().add(lblIdNumber);
+		frame1.getContentPane().add(lblIdNumber);
 		
 		 btnGrabClasses = new JButton("Grab Classes");
 		btnGrabClasses.setBounds(256, 26, 137, 22);
-		frame.getContentPane().add(btnGrabClasses);
+		frame1.getContentPane().add(btnGrabClasses);
 		btnGrabClasses.addActionListener(new load());
 		btnGrabClasses.setActionCommand("enable");
 		
 		btnUpdateFile = new JButton("Update File");
 		btnUpdateFile.setBounds(117, 587, 97, 25);
-		frame.getContentPane().add(btnUpdateFile);
+		frame1.getContentPane().add(btnUpdateFile);
 		btnUpdateFile.addActionListener(new update());
 		
 	}
