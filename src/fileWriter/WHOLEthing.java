@@ -21,6 +21,7 @@ import javax.swing.JTextField;
 import fileWriter.Home.rtnStud;
 import fileWriter.Home.rtnStud.load;
 import fileWriter.Home.rtnStud.update;
+import javax.swing.JTable;
 
 public class WHOLEthing {
 
@@ -67,6 +68,10 @@ public class WHOLEthing {
 		frame.getContentPane().setLayout(null);
 		
 		txtWelcome = new JTextField();
+		txtWelcome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		txtWelcome.setBackground(Color.BLUE);
 		txtWelcome.setForeground(Color.WHITE);
 		txtWelcome.setFont(new Font("Stencil", Font.PLAIN, 34));
@@ -78,7 +83,7 @@ public class WHOLEthing {
 		
 		btnReturningStudent = new JButton("Returning Student");
 		btnReturningStudent.setBounds(316, 248, 157, 25);
-		frame.add(btnReturningStudent);
+		frame.getContentPane().add(btnReturningStudent);
 		btnReturningStudent.addActionListener(new rtnStud());
 	}
 	
@@ -183,4 +188,5 @@ public class WHOLEthing {
 		}
 	
 
-}}
+}	
+}
