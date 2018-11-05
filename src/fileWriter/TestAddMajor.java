@@ -8,12 +8,14 @@ import javax.swing.table.TableColumn;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
+import javax.swing.JTextField;
 
 public class TestAddMajor {
 
 	private JFrame frame;
 	private JTable table;
 	private JButton btnAddNewMajor;
+	private JTextField txtMajorname;
 
 	/**
 	 * Launch the application.
@@ -48,17 +50,10 @@ public class TestAddMajor {
 		frame.getContentPane().setLayout(null);
 		
 		table = new JTable(20,2);
-		table.setBounds(216, 73, 481, 388);
+		table.setBounds(217, 73, 481, 388);
 		frame.getContentPane().add(table);
 		TableColumn column = null;
-		for (int i = 0; i < 5; i++) {
-		    column = table.getColumnModel().getColumn(i);
-		    if (i == 3) {
-		        column.setPreferredWidth(100); //third column is bigger
-		    } else {
-		        column.setPreferredWidth(50);
-		    }
-		}
+		
 		
 		
 		
@@ -70,6 +65,15 @@ public class TestAddMajor {
 		btnAddNewMajor = new JButton("ADD NEW MAJOR");
 		btnAddNewMajor.setBounds(404, 532, 153, 26);
 		frame.getContentPane().add(btnAddNewMajor);
+		
+		txtMajorname = new JTextField();
+		txtMajorname.setBounds(214, 534, 116, 22);
+		frame.getContentPane().add(txtMajorname);
+		txtMajorname.setColumns(10);
+		
+		JLabel lblInsertMajorName = new JLabel("Insert Major Name");
+		lblInsertMajorName.setBounds(70, 537, 136, 22);
+		frame.getContentPane().add(lblInsertMajorName);
 		
 		
 	}

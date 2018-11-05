@@ -39,6 +39,7 @@ public class WHOLEthing {
 	public JButton btnAddNewMajor;
 	private JTable table;
 	private JButton btnAddMajor;
+	private JTextField txtMajorname;
 	/**
 	 * Launch the application.
 	 */
@@ -205,7 +206,7 @@ public class WHOLEthing {
 		public void actionPerformed(ActionEvent arg0) {
 			frame2 = new JFrame();
 			
-			frame2.setBounds(100, 100, 1072, 696);
+			frame2.setBounds(100, 100, 976, 673);
 			frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame2.getContentPane().setLayout(null);
 			frame2.setVisible(true);
@@ -213,20 +214,26 @@ public class WHOLEthing {
 			
 			table = new JTable(20,2);
 			table.setBounds(216, 73, 481, 388);
-			frame.getContentPane().add(table);
-			
-			
-			
+			frame2.getContentPane().add(table);
 			
 			JLabel lblAddNewClasses = new JLabel("Add new classes");
 			lblAddNewClasses.setFont(new Font("Tahoma", Font.PLAIN, 17));
 			lblAddNewClasses.setBounds(362, 34, 179, 26);
-			frame.getContentPane().add(lblAddNewClasses);
+			frame2.getContentPane().add(lblAddNewClasses);
 			
 			btnAddMajor = new JButton("ADD NEW MAJOR");
 			btnAddMajor.setBounds(404, 532, 153, 26);
-			frame.getContentPane().add(btnAddMajor);
+			frame2.getContentPane().add(btnAddMajor);
 			btnAddMajor.addActionListener(new createM());
+			
+			txtMajorname = new JTextField();
+			txtMajorname.setBounds(214, 534, 116, 22);
+			frame2.getContentPane().add(txtMajorname);
+			txtMajorname.setColumns(10);
+			
+			JLabel lblInsertMajorName = new JLabel("Insert Major Name");
+			lblInsertMajorName.setBounds(70, 537, 136, 22);
+			frame2.getContentPane().add(lblInsertMajorName);
 		
 		
 		}
@@ -234,14 +241,16 @@ public class WHOLEthing {
 	}
 	public class createM implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
-//			try {
-//		         
-//		         BufferedWriter outFile = new BufferedWriter(new FileWriter(+".txt"));
-//		         outFile.write(textArea.getText()); 
-//
-//		         outFile.close();
-//		     } catch (IOException ex) {
-//		     }
+		String major=txtMajorname.getText();
+			
+		try {
+		         
+		         BufferedWriter outFile = new BufferedWriter(new FileWriter(major+".txt"));
+		         //outFile.write(table.get); 
+
+		         outFile.close();
+		     } catch (IOException ex) {
+		     }
 			
 		}
 		}
