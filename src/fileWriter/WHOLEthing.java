@@ -17,6 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.table.TableColumn;
 
 import fileWriter.Home.rtnStud;
 import fileWriter.Home.rtnStud.load;
@@ -27,6 +28,7 @@ public class WHOLEthing {
 
 	private JFrame frame;
 	private JFrame frame1;
+	private JFrame frame2;
 	private JTextField textField;
 	private JButton btnGrabClasses;
 	private JTextArea textArea;
@@ -34,6 +36,9 @@ public class WHOLEthing {
 	public String IDNum;
 	private JTextField txtWelcome;
 	public JButton btnReturningStudent;
+	public JButton btnAddNewMajor;
+	private JTable table;
+	private JButton btnAddMajor;
 	/**
 	 * Launch the application.
 	 */
@@ -85,6 +90,12 @@ public class WHOLEthing {
 		btnReturningStudent.setBounds(316, 248, 157, 25);
 		frame.getContentPane().add(btnReturningStudent);
 		btnReturningStudent.addActionListener(new rtnStud());
+		
+		btnAddNewMajor = new JButton("Add New Major");
+		btnAddNewMajor.setBounds(118, 248, 157, 25);
+		frame.getContentPane().add(btnAddNewMajor);
+		btnAddNewMajor.addActionListener(new major());
+	
 	}
 	
 	public class rtnStud implements ActionListener{
@@ -189,4 +200,50 @@ public class WHOLEthing {
 	
 
 }	
+	//New major screen
+	public class major implements ActionListener{
+		public void actionPerformed(ActionEvent arg0) {
+			frame2 = new JFrame();
+			
+			frame2.setBounds(100, 100, 1072, 696);
+			frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frame2.getContentPane().setLayout(null);
+			frame2.setVisible(true);
+			
+			
+			table = new JTable(20,2);
+			table.setBounds(216, 73, 481, 388);
+			frame.getContentPane().add(table);
+			
+			
+			
+			
+			JLabel lblAddNewClasses = new JLabel("Add new classes");
+			lblAddNewClasses.setFont(new Font("Tahoma", Font.PLAIN, 17));
+			lblAddNewClasses.setBounds(362, 34, 179, 26);
+			frame.getContentPane().add(lblAddNewClasses);
+			
+			btnAddMajor = new JButton("ADD NEW MAJOR");
+			btnAddMajor.setBounds(404, 532, 153, 26);
+			frame.getContentPane().add(btnAddMajor);
+			btnAddMajor.addActionListener(new createM());
+		
+		
+		}
+		
+	}
+	public class createM implements ActionListener{
+		public void actionPerformed(ActionEvent arg0) {
+//			try {
+//		         
+//		         BufferedWriter outFile = new BufferedWriter(new FileWriter(+".txt"));
+//		         outFile.write(textArea.getText()); 
+//
+//		         outFile.close();
+//		     } catch (IOException ex) {
+//		     }
+			
+		}
+		}
+	
 }
