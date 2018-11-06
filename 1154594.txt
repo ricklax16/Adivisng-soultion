@@ -1,8 +1,46 @@
+1154594
+Name: John Deschenes
+Major: Computer Science
 
-                                     Semester                                          Semester
-   First Year (14 credits) - Fall    Completed     First Year (15 credits) - Spring   Completed
+Advisor:
+                                                                                             Fall 2018
 
-   (4) COMSC 110 Intro to CS & Lab                 (4) COMSC 111 Data Structure & Lab
-   (3) CORE 102 Challenges of Democracy            (3) CORE 103 Human Behavior
-   (4) MATH 221 Discrete Mathematics               (4) MATH 213 Calculus I & Lab
-   (3) WTNG 102 Expository Writing                 (4)           Science course (1St) & lab
+                                     Semester                                        Semester
+   First Year (14 credits) - Fall    Completed     First Year (15 credits) - Spring Completed
+
+   (4) COMSC 110 Intro to CS & Lab      ( )           (4) COMSC 111 Data Structure & Lab     ( )
+   (3) CORE 102 Challenges of Democracy ( )          (3) CORE 103 Human Behavior             ( )
+   (4) MATH 221 Discrete Mathematics    ( )          (4) MATH 213 Calculus I & Lab           ( )
+   (3) WTNG 102 Expository Writing      ( )          (4)           Science course (1St) & lab ( )
+
+
+
+   Second Year (17 credits) - Fall                 Second Year (16 credits) - Spring
+
+   (4) COMSC 210 Prin of Comp Org & Lab  ( )          (3) COMSC 230 Prin of Prog Languages       ( )
+   (3) COMSC 335 Theory of Computation   ( )          (3) COMSC 340 Analysis Algorithm         ( )
+   (3) CORE 104 Lit/Phil & Examined Life ( )          (3) CORE 105 Artistic Impulse          ( )
+   (3) MATH 214 Calculus II & Lab        ( )          (3) MATH 315 Probability & Statistics  ( )
+   (4) WTNG 220 Critical Writing/Prof    ( )          (4)           Science course (2nd) & lab  ( )
+
+   Third Year (16-17 credits) - Fall               Third Year (15-16 credits) - Spring
+
+   (3) COMM 210 Intro to Public Speaking ( )          (3) COMSC 440 Lang Translation       ( )
+   (3) COMSC 330 Software Design         ( )                        & Compiler Design      ( )
+   (3) COMSC 420 Prin of Operating Systems  ( )      (3/4)         Specialization Elective ( )
+   (4)    Science course (3rd) & lab   ( )          (3)           Specialization Elective  ( )
+   (3/4)   Specialization Elective          ( )        (3)       Math Elective (>200)      ( )
+                                                   (3)           Free Elective             ( )
+
+   Fourth Year (15-16 credits) - Fall              Fourth Year (13 credits) - Spring
+
+   (3) SEC 200  Intro to Networking        ( )        (3) SEC 201   Security Techniques      ( )
+   (3) COMSC 490 Integrated Senior Dsgn I  ( )        (1) COMSC 401 CS Senior Seminar        ( )
+   (3) CORE 4_ Core Senior Seminar         ( )        (3) COMSC 492 Integrated Senior Dsgn II ( )
+   (3)         Specialization Elective     ( )        (3)           Specialization Elective   ( )
+   (3/4)        Math Elective (>200)       ( )        (3)           Free Elective            ( )
+                 or Science Elective
+
+   Total: 121-124 Semester Credit Hours 
+
+   Note: CORE 101 may not be taken as a science course.

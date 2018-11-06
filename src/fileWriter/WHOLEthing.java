@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -15,8 +16,10 @@ import java.io.IOException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.table.TableColumn;
 
 import fileWriter.Home.rtnStud;
@@ -112,17 +115,22 @@ public class WHOLEthing {
 			//Still need to create IDNum
 			
 			
+			 textArea = new JTextArea(56,77);
+			//textArea.setBounds(56, 77, 906, 474);
+			//frame1.getContentPane().add(textArea);
 			
-			
-			
-			 textArea = new JTextArea();
-			textArea.setBounds(56, 77, 906, 474);
-			frame1.getContentPane().add(textArea);
+		
 			
 			textField = new JTextField();
 			textField.setBounds(117, 26, 116, 22);
 			frame1.getContentPane().add(textField);
 			textField.setColumns(10);
+			
+			JScrollPane scroll = new JScrollPane (textArea);
+			scroll.setSize(808, 517);
+			scroll.setLocation(88, 57);
+			scroll.setVerticalScrollBarPolicy ( ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS );
+			 frame1.getContentPane().add(scroll);
 			
 			JLabel lblIdNumber = new JLabel("ID:");
 			lblIdNumber.setBounds(78, 29, 27, 16);
@@ -212,6 +220,7 @@ public class WHOLEthing {
 			frame2.setVisible(true);
 			
 			
+	         
 			table = new JTable(20,2);
 			table.setBounds(216, 73, 481, 388);
 			frame2.getContentPane().add(table);
@@ -244,9 +253,21 @@ public class WHOLEthing {
 		String major=txtMajorname.getText();
 			
 		try {
+		         File major1 = new File("C:\\Users\\rickh\\Desktop\\"+major+".txt");
+		         FileWriter fw = new FileWriter(major1.getAbsoluteFile());
+		         BufferedWriter outFile = new BufferedWriter(fw);
+		       //loop for jtable rows
+	               for(int i = 0; i < table.getRowCount(); i++){
+	                   //loop for jtable column
+	                   for(int j = 0; j < table.getColumnCount(); j++){
+	                       outFile.write(table.getModel().getValueAt(i, j)+" ");
+	                       
+	                   }
+	                   outFile.write("\r\n");
+	              
+	               }
 		         
-		         BufferedWriter outFile = new BufferedWriter(new FileWriter(major+".txt"));
-		         //outFile.write(table.get); 
+		         
 
 		         outFile.close();
 		     } catch (IOException ex) {
@@ -256,3 +277,11 @@ public class WHOLEthing {
 		}
 	
 }
+//File file = new File("C:\\Users\\samsng\\Desktop\\folder\\Text.txt");
+//FileWriter fw = new FileWriter(file.getAbsoluteFile());
+
+
+
+
+
+//END

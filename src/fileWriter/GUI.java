@@ -14,8 +14,11 @@ import javax.swing.JCheckBox;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 
 public class GUI implements ActionListener {
 
@@ -58,21 +61,31 @@ public class GUI implements ActionListener {
 		frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame1.getContentPane().setLayout(null);
 		
-		//Still need to create IDNum
 		
+		//textArea.setBounds(56, 77, 906, 474);
+		//frame1.getContentPane().add(textArea);
 		
+	   
 		
-		
-		
-		 textArea = new JTextArea();
-		textArea.setBounds(56, 77, 906, 474);
-		frame1.getContentPane().add(textArea);
-		
+		 textArea = new JTextArea(56,77);
+	    
 		textField = new JTextField();
 		textField.setBounds(117, 26, 116, 22);
 		frame1.getContentPane().add(textField);
 		textField.setColumns(10);
 		
+		JScrollPane scroll = new JScrollPane (textArea);
+		scroll.setSize(808, 517);
+		scroll.setLocation(88, 57);
+		scroll.setVerticalScrollBarPolicy ( ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS );
+		 frame1.getContentPane().add(scroll);
+		
+		
+		
+		
+		
+		 
+		 
 		JLabel lblIdNumber = new JLabel("ID:");
 		lblIdNumber.setBounds(78, 29, 27, 16);
 		frame1.getContentPane().add(lblIdNumber);
@@ -86,7 +99,16 @@ public class GUI implements ActionListener {
 		btnUpdateFile = new JButton("Update File");
 		btnUpdateFile.setBounds(117, 587, 97, 25);
 		frame1.getContentPane().add(btnUpdateFile);
-		btnUpdateFile.addActionListener(new update());
+		
+		//Still need to create IDNum
+		
+		
+		
+		
+		
+		
+		
+		
 		
 	}
 	
@@ -146,5 +168,10 @@ public void actionPerformed(ActionEvent e) {
 
 
 }
+}
+@Override
+public void actionPerformed(ActionEvent arg0) {
+	// TODO Auto-generated method stub
+	
 }
 }
