@@ -20,7 +20,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
 import javax.swing.table.TableColumn;
+import javax.swing.border.Border;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 
 import fileWriter.Home.rtnStud;
 import fileWriter.Home.rtnStud.load;
@@ -43,6 +47,7 @@ public class WHOLEthing {
 	private JTable table;
 	private JButton btnAddMajor;
 	private JTextField txtMajorname;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -71,8 +76,8 @@ public class WHOLEthing {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(Color.BLUE);
-		frame.setBounds(100, 100, 932, 514);
+		frame.getContentPane().setBackground(Color.WHITE);
+		frame.setBounds(100, 100, 932, 538);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -81,25 +86,35 @@ public class WHOLEthing {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		txtWelcome.setBackground(Color.BLUE);
-		txtWelcome.setForeground(Color.WHITE);
-		txtWelcome.setFont(new Font("Stencil", Font.PLAIN, 34));
+		txtWelcome.setBackground(Color.WHITE);
+		txtWelcome.setForeground(Color.BLACK);
+		txtWelcome.setFont(new Font("Helvetica", Font.BOLD, 34));
 		txtWelcome.setEditable(false);
-		txtWelcome.setText("Welcome to the advising Soultion");
-		txtWelcome.setBounds(129, 28, 714, 103);
+		txtWelcome.setText("Welcome to the Advising Soultion");
+		txtWelcome.setHorizontalAlignment(SwingConstants.CENTER);
+		txtWelcome.setBounds(105, 28, 714, 103);
 		frame.getContentPane().add(txtWelcome);
 		txtWelcome.setColumns(10);
+		Border border = BorderFactory.createLineBorder(Color.WHITE, 5);
+		txtWelcome.setBorder(border);
+
 		
 		btnReturningStudent = new JButton("Returning Student");
-		btnReturningStudent.setBounds(316, 248, 157, 25);
+		btnReturningStudent.setBounds(115, 244, 173, 37);
+		btnReturningStudent.setFont(new Font("Helvetica", Font.BOLD, 15));
 		frame.getContentPane().add(btnReturningStudent);
 		btnReturningStudent.addActionListener(new rtnStud());
 		
 		btnAddNewMajor = new JButton("Add New Major");
-		btnAddNewMajor.setBounds(118, 248, 157, 25);
+		btnAddNewMajor.setBounds(115, 161, 173, 37);
+		btnAddNewMajor.setFont(new Font("Helvetica", Font.BOLD, 15));
 		frame.getContentPane().add(btnAddNewMajor);
 		btnAddNewMajor.addActionListener(new major());
-	
+		
+		ImageIcon image = new ImageIcon("RWULogo.png");
+		JLabel imageLabel = new JLabel(image);
+		imageLabel.setBounds(374, 161, 410, 259);
+		frame.getContentPane().add(imageLabel);
 	}
 	
 	public class rtnStud implements ActionListener{
@@ -108,6 +123,7 @@ public class WHOLEthing {
 			
 			frame1 = new JFrame();
 			
+			frame1.getContentPane().setBackground(Color.WHITE);
 			frame1.setBounds(100, 100, 1072, 696);
 			frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame1.getContentPane().setLayout(null);
@@ -122,7 +138,8 @@ public class WHOLEthing {
 		
 			
 			textField = new JTextField();
-			textField.setBounds(117, 26, 116, 22);
+			textField.setBounds(120, 10, 116, 37);
+			textField.setFont(new Font("Helvetica", Font.PLAIN, 20));
 			frame1.getContentPane().add(textField);
 			textField.setColumns(10);
 			
@@ -133,17 +150,21 @@ public class WHOLEthing {
 			 frame1.getContentPane().add(scroll);
 			
 			JLabel lblIdNumber = new JLabel("ID:");
-			lblIdNumber.setBounds(78, 29, 27, 16);
+			lblIdNumber.setForeground(Color.BLACK);
+			lblIdNumber.setFont(new Font("Helvetica", Font.BOLD, 20));
+			lblIdNumber.setBounds(90, 20, 27, 16);
 			frame1.getContentPane().add(lblIdNumber);
 			
-			 btnGrabClasses = new JButton("Grab Classes");
-			btnGrabClasses.setBounds(256, 26, 137, 22);
+			btnGrabClasses = new JButton("Grab Classes");
+			btnGrabClasses.setBounds(250, 10, 173, 37);
+			btnGrabClasses.setFont(new Font("Helvetica", Font.BOLD, 15));
 			frame1.getContentPane().add(btnGrabClasses);
 			btnGrabClasses.addActionListener(new load());
 			btnGrabClasses.setActionCommand("enable");
 			
 			btnUpdateFile = new JButton("Update File");
-			btnUpdateFile.setBounds(117, 587, 97, 25);
+			btnUpdateFile.setBounds(87, 587, 173, 37);
+			btnUpdateFile.setFont(new Font("Helvetica", Font.BOLD, 15));
 			frame1.getContentPane().add(btnUpdateFile);
 			btnUpdateFile.addActionListener(new update());
 			
@@ -215,6 +236,7 @@ public class WHOLEthing {
 			frame2 = new JFrame();
 			
 			frame2.setBounds(100, 100, 976, 673);
+			frame2.getContentPane().setBackground(Color.WHITE);
 			frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame2.getContentPane().setLayout(null);
 			frame2.setVisible(true);
@@ -226,22 +248,25 @@ public class WHOLEthing {
 			frame2.getContentPane().add(table);
 			
 			JLabel lblAddNewClasses = new JLabel("Add new classes");
-			lblAddNewClasses.setFont(new Font("Tahoma", Font.PLAIN, 17));
+			lblAddNewClasses.setFont(new Font("Tahoma", Font.BOLD, 20));
 			lblAddNewClasses.setBounds(362, 34, 179, 26);
 			frame2.getContentPane().add(lblAddNewClasses);
 			
 			btnAddMajor = new JButton("ADD NEW MAJOR");
-			btnAddMajor.setBounds(404, 532, 153, 26);
+			btnAddMajor.setBounds(522, 532, 173, 37);
+			btnAddMajor.setFont(new Font("Helvetica", Font.BOLD, 15));
 			frame2.getContentPane().add(btnAddMajor);
 			btnAddMajor.addActionListener(new createM());
 			
 			txtMajorname = new JTextField();
-			txtMajorname.setBounds(214, 534, 116, 22);
+			txtMajorname.setBounds(205, 532, 300, 37);
+			txtMajorname.setFont(new Font("Helvetica", Font.PLAIN, 20));
 			frame2.getContentPane().add(txtMajorname);
 			txtMajorname.setColumns(10);
 			
-			JLabel lblInsertMajorName = new JLabel("Insert Major Name");
-			lblInsertMajorName.setBounds(70, 537, 136, 22);
+			JLabel lblInsertMajorName = new JLabel("Insert Major Name:");
+			lblInsertMajorName.setBounds(362, 480, 180, 22);
+			lblInsertMajorName.setFont(new Font("Helvetica", Font.BOLD, 20));
 			frame2.getContentPane().add(lblInsertMajorName);
 		
 		
@@ -253,6 +278,7 @@ public class WHOLEthing {
 		String major=txtMajorname.getText();
 			
 		try {
+				
 		         File major1 = new File("C:\\Users\\rickh\\Desktop\\"+major+".txt");
 		         FileWriter fw = new FileWriter(major1.getAbsoluteFile());
 		         BufferedWriter outFile = new BufferedWriter(fw);
@@ -275,7 +301,6 @@ public class WHOLEthing {
 			
 		}
 		}
-	
 }
 //File file = new File("C:\\Users\\samsng\\Desktop\\folder\\Text.txt");
 //FileWriter fw = new FileWriter(file.getAbsoluteFile());
