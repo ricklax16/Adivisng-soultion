@@ -278,8 +278,9 @@ public class WHOLEthing {
 		String major=txtMajorname.getText();
 			
 		try {
-				
-		         File major1 = new File("C:\\Users\\rickh\\Desktop\\"+major+".txt");
+				 String userHomeFolder = System.getProperty("user.home") + "\\" + "Desktop";
+				 //System.out.println(userHomeFolder);
+		         File major1 = new File(userHomeFolder, major+".txt");
 		         FileWriter fw = new FileWriter(major1.getAbsoluteFile());
 		         BufferedWriter outFile = new BufferedWriter(fw);
 		       //loop for jtable rows
