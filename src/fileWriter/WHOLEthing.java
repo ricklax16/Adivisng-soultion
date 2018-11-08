@@ -177,7 +177,7 @@ public class WHOLEthing {
 	public class load implements ActionListener{
 	public void actionPerformed(ActionEvent arg0) {
 		if("enable".equals(arg0.getActionCommand())) {
-			btnGrabClasses.setText("TEST");
+			
 			int count=0;
 			if(arg0.getSource()==btnGrabClasses);
 			IDNum = textField.getText();

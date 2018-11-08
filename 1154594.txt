@@ -1,6 +1,3 @@
-1154594
-Name: John Deschenes
-Major: Computer Science
 
 Advisor:
                                                                                              Fall 2018
@@ -8,10 +5,10 @@ Advisor:
                                      Semester                                        Semester
    First Year (14 credits) - Fall    Completed     First Year (15 credits) - Spring Completed
 
-   (4) COMSC 110 Intro to CS & Lab      ( )           (4) COMSC 111 Data Structure & Lab     ( )
-   (3) CORE 102 Challenges of Democracy ( )          (3) CORE 103 Human Behavior             ( )
-   (4) MATH 221 Discrete Mathematics    ( )          (4) MATH 213 Calculus I & Lab           ( )
-   (3) WTNG 102 Expository Writing      ( )          (4)           Science course (1St) & lab ( )
+   (4) COMSC 110 Intro to CS & Lab      (FA18 )           (4) COMSC 111 Data Structure & Lab     ( )
+   (3) CORE 102 Challenges of Democracy (Sp19 )          (3) CORE 103 Human Behavior             ( )
+   (4) MATH 221 Discrete Mathematics    (FA18 )          (4) MATH 213 Calculus I & Lab           ( )
+   (3) WTNG 102 Expository Writing      (SP19 )          (4)           Science course (1St) & lab ( )
 
 
 
