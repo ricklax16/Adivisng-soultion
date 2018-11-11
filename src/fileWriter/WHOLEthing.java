@@ -215,8 +215,10 @@ public class WHOLEthing {
 	public class update implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		 try {
-	         
-	         BufferedWriter outFile = new BufferedWriter(new FileWriter(IDNum+".txt"));
+			 String userHomeFolder = System.getProperty("user.home") + "\\" + "Desktop//Advising";
+			 //System.out.println(userHomeFolder);
+			 FileWriter fw3 = new FileWriter(new File(userHomeFolder, IDNum+".txt"));
+	         BufferedWriter outFile = new BufferedWriter(fw3);
 	         outFile.write(textArea.getText()); 
 
 	         outFile.close();
@@ -278,7 +280,7 @@ public class WHOLEthing {
 		String major=txtMajorname.getText();
 			
 		try {
-				 String userHomeFolder = System.getProperty("user.home") + "\\" + "Desktop";
+				 String userHomeFolder = System.getProperty("user.home") + "\\" + "Desktop//Advising";
 				 //System.out.println(userHomeFolder);
 		         File major1 = new File(userHomeFolder, major+".txt");
 		         FileWriter fw = new FileWriter(major1.getAbsoluteFile());
