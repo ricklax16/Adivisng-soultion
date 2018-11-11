@@ -1,8 +1,14 @@
 package fileWriter;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
-import javax.swing.Jframe;
+import javax.swing.JFrame;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -13,11 +19,11 @@ import javax.swing.JButton;
 
 public class NewStundent {
 
-	private Jframe frame4;
+	private JFrame frame4;
 	private JTextField txtId;
 	private JTextField txtName;
 	private JTextField txtYear;
-
+public JComboBox comboBox;
 	/**
 	 * Launch the application.
 	 */
@@ -45,12 +51,12 @@ public class NewStundent {
 	 * Initialize the contents of the frame4.
 	 */
 	private void initialize() {
-		frame4 = new Jframe();
+		frame4 = new JFrame();
 		frame4.setBounds(100, 100, 873, 564);
-		frame4.setDefaultCloseOperation(Jframe.EXIT_ON_CLOSE);
+		frame4.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame4.getContentPane().setLayout(null);
 		
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox();
 		comboBox.setBounds(521, 70, 264, 22);
 		frame4.getContentPane().add(comboBox);
 		
@@ -88,6 +94,29 @@ public class NewStundent {
 		JButton btnCreateNewStudent = new JButton("Create New Student");
 		btnCreateNewStudent.setBounds(521, 257, 172, 25);
 		frame4.getContentPane().add(btnCreateNewStudent);
-		btnCreateNewStudent.addActionListener(new createM());
+		btnCreateNewStudent.addActionListener(new NewStud());
 	}
+	public class NewStud implements ActionListener{
+		public void actionPerformed(ActionEvent arg0) {
+		
+			String SetID = txtId.getText();
+			String SetName = txtName.getText();
+			String grad = txtYear.getText();
+			String maj = (String) comboBox.getSelectedItem();
+			
+			try {
+				 String userHomeFolder = System.getProperty("user.home") + "\\" + "Desktop//Advising";
+				 //System.out.println(userHomeFolder);
+		         File major2 = new File(userHomeFolder, maj+".txt");
+		         FileWriter fw = new FileWriter(new File(userHomeFolder, SetID+".txt"));
+		         BufferedWriter outFile = new BufferedWriter(fw);
+		         outFile.write(SetID+"\r\n"+SetName+"\r\n"+grad); 
+		         outFile.write("\r\n"+major2);
+		         outFile.close();
+		     } catch (IOException ex) {
+		     }
+		
+		
+		}
+		}
 }
