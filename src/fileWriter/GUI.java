@@ -5,6 +5,7 @@ import java.io.*;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.print.PrinterException;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -16,6 +17,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.JLabel;
+import javax.swing.Action;
 import javax.swing.JButton;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
@@ -100,6 +102,10 @@ public class GUI implements ActionListener {
 		btnUpdateFile.setBounds(117, 587, 97, 25);
 		frame1.getContentPane().add(btnUpdateFile);
 		
+		JButton btnPrint = new JButton("Print");
+		btnPrint.setBounds(676, 587, 97, 25);
+		frame1.getContentPane().add(btnPrint);
+		btnPrint.addActionListener( new Prin());
 		//Still need to create IDNum
 		
 		
@@ -114,7 +120,17 @@ public class GUI implements ActionListener {
 	
 			
 
-
+	public class Prin implements ActionListener{
+		public void actionPerformed(ActionEvent arg0) {
+		
+		try {
+			textArea.print();
+		} catch (PrinterException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+		}
 
 public class load implements ActionListener{
 public void actionPerformed(ActionEvent arg0) {
