@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.print.PrinterException;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -14,6 +15,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -26,13 +28,16 @@ import javax.swing.border.Border;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 
+import fileWriter.GUI.Prin;
 import fileWriter.Home.rtnStud;
 import fileWriter.Home.rtnStud.load;
 import fileWriter.Home.rtnStud.update;
+import fileWriter.NewStundent.NewStud;
+
 import javax.swing.JTable;
 
 public class WHOLEthing {
-
+	public JComboBox comboBox;
 	private JFrame frame;
 	private JFrame frame1;
 	private JFrame frame2;
@@ -47,7 +52,10 @@ public class WHOLEthing {
 	private JTable table;
 	private JButton btnAddMajor;
 	private JTextField txtMajorname;
-	
+	private JFrame frame4;
+	private JTextField txtId;
+	private JTextField txtName;
+	private JTextField txtYear;
 	/**
 	 * Launch the application.
 	 */
@@ -115,7 +123,85 @@ public class WHOLEthing {
 		JLabel imageLabel = new JLabel(image);
 		imageLabel.setBounds(374, 161, 410, 259);
 		frame.getContentPane().add(imageLabel);
+		
+		JButton btnNewStudent = new JButton("New Student");
+		btnNewStudent.setBounds(115, 317, 173, 37);
+		frame.getContentPane().add(btnNewStudent);
+		btnNewStudent.addActionListener(new Student());
 	}
+	public class Student implements ActionListener{
+		public void actionPerformed(ActionEvent arg0) {
+			frame4 = new JFrame();
+			frame4.setBounds(100, 100, 873, 564);
+			frame4.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frame4.getContentPane().setLayout(null);
+			
+			comboBox = new JComboBox();
+			comboBox.setBounds(521, 70, 264, 22);
+			frame4.getContentPane().add(comboBox);
+			
+			JLabel lblMajor = new JLabel("Major");
+			lblMajor.setBounds(434, 73, 56, 16);
+			frame4.getContentPane().add(lblMajor);
+			
+			txtId = new JTextField();
+			txtId.setBounds(143, 70, 116, 22);
+			frame4.getContentPane().add(txtId);
+			txtId.setColumns(10);
+			
+			JLabel lblStudentid = new JLabel("StudentID");
+			lblStudentid.setBounds(63, 73, 56, 16);
+			frame4.getContentPane().add(lblStudentid);
+			
+			txtName = new JTextField();
+			txtName.setBounds(143, 120, 116, 22);
+			frame4.getContentPane().add(txtName);
+			txtName.setColumns(10);
+			
+			JLabel lblName = new JLabel("Name");
+			lblName.setBounds(63, 123, 56, 16);
+			frame4.getContentPane().add(lblName);
+			
+			txtYear = new JTextField();
+			txtYear.setBounds(143, 174, 116, 22);
+			frame4.getContentPane().add(txtYear);
+			txtYear.setColumns(10);
+			
+			JLabel lblGradYear = new JLabel("Grad Year");
+			lblGradYear.setBounds(63, 177, 68, 16);
+			frame4.getContentPane().add(lblGradYear);
+			
+			JButton btnCreateNewStudent = new JButton("Create New Student");
+			btnCreateNewStudent.setBounds(521, 257, 172, 25);
+			frame4.getContentPane().add(btnCreateNewStudent);
+			btnCreateNewStudent.addActionListener(new NewStud());
+		}
+		public class NewStud implements ActionListener{
+			public void actionPerformed(ActionEvent arg0) {
+			
+				String SetID = txtId.getText();
+				String SetName = txtName.getText();
+				String grad = txtYear.getText();
+				String maj = (String) comboBox.getSelectedItem();
+				
+				try {
+					 String userHomeFolder = System.getProperty("user.home") + "\\" + "Desktop//Advising";
+					 //System.out.println(userHomeFolder);
+			         File major2 = new File(userHomeFolder, maj+".txt");
+			         FileWriter fw = new FileWriter(new File(userHomeFolder, SetID+".txt"));
+			         BufferedWriter outFile = new BufferedWriter(fw);
+			         outFile.write(SetID+"\r\n"+SetName+"\r\n"+grad); 
+			         outFile.write("\r\n"+major2);
+			         outFile.close();
+			     } catch (IOException ex) {
+			     }
+			
+			
+			}
+			}
+		
+		}
+		
 	
 	public class rtnStud implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
@@ -168,7 +254,29 @@ public class WHOLEthing {
 			frame1.getContentPane().add(btnUpdateFile);
 			btnUpdateFile.addActionListener(new update());
 			
+			JButton btnPrint = new JButton("Print");
+			btnPrint.setBounds(676, 587, 97, 25);
+			frame1.getContentPane().add(btnPrint);
+			btnPrint.addActionListener( new Prin());
+			//Still need to create IDN	
+			
 		}
+		
+				
+
+		public class Prin implements ActionListener{
+			public void actionPerformed(ActionEvent arg0) {
+			
+			try {
+				textArea.print();
+			} catch (PrinterException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+			}
+			
+		
 		
 				
 
