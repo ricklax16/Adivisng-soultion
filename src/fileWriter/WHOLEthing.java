@@ -146,6 +146,7 @@ public class WHOLEthing {
 			comboBox.setBounds(521, 70, 264, 37);
 			comboBox.setFont(new Font("Helvetica", Font.BOLD, 15));
 			frame4.getContentPane().add(comboBox);
+			comboBox.setEditable(true);
 			
 			JLabel lblMajor = new JLabel("Major:");
 			lblMajor.setFont(new Font("Helvetica", Font.BOLD, 19));
