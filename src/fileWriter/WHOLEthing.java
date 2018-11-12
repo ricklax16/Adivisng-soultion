@@ -125,67 +125,84 @@ public class WHOLEthing {
 		frame.getContentPane().add(imageLabel);
 		
 		JButton btnNewStudent = new JButton("New Student");
+		btnNewStudent.setFont(new Font("Helvetica", Font.BOLD, 15));
 		btnNewStudent.setBounds(115, 317, 173, 37);
 		frame.getContentPane().add(btnNewStudent);
 		btnNewStudent.addActionListener(new Student());
 	}
+	
 	public class Student implements ActionListener{
 		public void actionPerformed(ActionEvent arg0) {
 			frame4 = new JFrame();
 			frame4.setBounds(100, 100, 873, 564);
+			frame4.getContentPane().setBackground(Color.WHITE);
 			frame4.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame4.getContentPane().setLayout(null);
 			frame4.setVisible(true);
 			
-			String[] majorStrings = { "B.S. CompSci", "Eng", "CM", "B.A. CompSci" };
+			String[] majorStrings = { "B.S. Computer Science", "Engineering", "Construction Managment", "B.A. Computer Science" };
 			
 			JComboBox comboBox = new JComboBox(majorStrings);
-			comboBox.setBounds(521, 70, 264, 22);
+			comboBox.setBounds(521, 70, 264, 37);
+			comboBox.setFont(new Font("Helvetica", Font.BOLD, 15));
 			frame4.getContentPane().add(comboBox);
 			
-			JLabel lblMajor = new JLabel("Major");
-			lblMajor.setBounds(434, 73, 56, 16);
+			JLabel lblMajor = new JLabel("Major:");
+			lblMajor.setFont(new Font("Helvetica", Font.BOLD, 19));
+			lblMajor.setBounds(434, 75, 60, 25);
 			frame4.getContentPane().add(lblMajor);
 			
 			txtId = new JTextField();
-			txtId.setBounds(143, 70, 116, 22);
+			txtId.setBounds(150, 70, 173, 37);
+			txtId.setFont(new Font("Helvetica", Font.PLAIN, 15));
 			frame4.getContentPane().add(txtId);
 			txtId.setColumns(10);
 			
-			JLabel lblStudentid = new JLabel("StudentID");
-			lblStudentid.setBounds(63, 73, 56, 16);
+			JLabel lblStudentid = new JLabel("StudentID:");
+			lblStudentid.setFont(new Font("Helvetica", Font.BOLD, 18));
+			lblStudentid.setBounds(42, 77, 100, 16);
 			frame4.getContentPane().add(lblStudentid);
 			
 			txtName = new JTextField();
-			txtName.setBounds(143, 120, 116, 22);
+			txtName.setBounds(150, 180, 173, 37);
+			txtName.setFont(new Font("Helvetica", Font.PLAIN, 15));
 			frame4.getContentPane().add(txtName);
 			txtName.setColumns(10);
 			
-			JLabel lblName = new JLabel("Name");
-			lblName.setBounds(63, 123, 56, 16);
+			JLabel lblName = new JLabel("Name:");
+			lblName.setFont(new Font("Helvetica", Font.BOLD, 18));
+			lblName.setBounds(53, 187, 100, 16);
 			frame4.getContentPane().add(lblName);
 			
 			txtYear = new JTextField();
-			txtYear.setBounds(143, 174, 116, 22);
+			txtYear.setBounds(150, 290, 173, 37);
 			frame4.getContentPane().add(txtYear);
 			txtYear.setColumns(10);
 			
-			JLabel lblGradYear = new JLabel("Grad Year");
-			lblGradYear.setBounds(63, 177, 68, 16);
+			JLabel lblGradYear = new JLabel("Grad Year:");
+			lblGradYear.setFont(new Font("Helvetica", Font.BOLD, 18));
+			lblGradYear.setBounds(40, 297, 100, 16);
 			frame4.getContentPane().add(lblGradYear);
 			
 			JButton btnCreateNewStudent = new JButton("Create New Student");
-			btnCreateNewStudent.setBounds(521, 257, 172, 25);
+			btnCreateNewStudent.setBounds(320, 400, 230, 37);
+			btnCreateNewStudent.setFont(new Font("Helvetica", Font.BOLD, 15));
 			frame4.getContentPane().add(btnCreateNewStudent);
 			btnCreateNewStudent.addActionListener(new NewStud());
+			
+			ImageIcon image = new ImageIcon("hawk.png");
+			JLabel imageLabel = new JLabel(image);
+			imageLabel.setBounds(430, 120, 410, 259);
+			frame4.getContentPane().add(imageLabel);
 		}
+		
 		public class NewStud implements ActionListener{
 			public void actionPerformed(ActionEvent arg0) {
 			
 				String SetID = txtId.getText();
 				String SetName = txtName.getText();
 				String grad = txtYear.getText();
-				String maj = (String) comboBox.getSelectedItem();
+				String maj = (String)comboBox.getSelectedItem();
 				
 				try {
 					 String userHomeFolder = System.getProperty("user.home") + "\\" + "Desktop//Advising";
@@ -258,7 +275,8 @@ public class WHOLEthing {
 			btnUpdateFile.addActionListener(new update());
 			
 			JButton btnPrint = new JButton("Print");
-			btnPrint.setBounds(676, 587, 97, 25);
+			btnPrint.setFont(new Font("Helvetica", Font.BOLD, 15));
+			btnPrint.setBounds(722, 587, 173, 37);
 			frame1.getContentPane().add(btnPrint);
 			btnPrint.addActionListener( new Prin());
 			//Still need to create IDN	
