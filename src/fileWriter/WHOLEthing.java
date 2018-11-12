@@ -176,6 +176,7 @@ public class WHOLEthing {
 			
 			txtYear = new JTextField();
 			txtYear.setBounds(150, 290, 173, 37);
+			txtYear.setFont(new Font("Helvetica", Font.PLAIN, 15));
 			frame4.getContentPane().add(txtYear);
 			txtYear.setColumns(10);
 			
