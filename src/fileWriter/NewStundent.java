@@ -57,6 +57,7 @@ public JComboBox comboBox;
 		frame4.getContentPane().setLayout(null);
 		
 		comboBox = new JComboBox();
+		comboBox.setEditable(true);
 		comboBox.setBounds(521, 70, 264, 22);
 		frame4.getContentPane().add(comboBox);
 		

@@ -37,7 +37,7 @@ import fileWriter.NewStundent.NewStud;
 import javax.swing.JTable;
 
 public class WHOLEthing {
-	//public JComboBox comboBox;
+	public JComboBox<String> comboBox;
 	private JFrame frame;
 	private JFrame frame1;
 	private JFrame frame2;
@@ -142,10 +142,11 @@ public class WHOLEthing {
 			
 			String[] majorStrings = { "B.S. Computer Science", "Engineering", "Construction Managment", "B.A. Computer Science" };
 			
-			JComboBox comboBox = new JComboBox(majorStrings);
+			comboBox = new JComboBox(majorStrings);
 			comboBox.setBounds(521, 70, 264, 37);
 			comboBox.setFont(new Font("Helvetica", Font.BOLD, 15));
 			frame4.getContentPane().add(comboBox);
+			comboBox.setEditable(true);
 			
 			JLabel lblMajor = new JLabel("Major:");
 			lblMajor.setFont(new Font("Helvetica", Font.BOLD, 19));
