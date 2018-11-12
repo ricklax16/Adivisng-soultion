@@ -207,7 +207,7 @@ public class WHOLEthing {
 				String maj = (String)comboBox.getSelectedItem();
 				
 				try {
-					 String userHomeFolder = System.getProperty("user.home") + "\\" + "Desktop//Advising";
+					 String userHomeFolder = System.getProperty("user.home") + "\\" + "Desktop\\Advising";
 					 //System.out.println(userHomeFolder);
 			         File major2 = new File(userHomeFolder, maj+".txt");
 			         FileWriter fw = new FileWriter(new File(userHomeFolder, SetID+".txt"));
