@@ -96,9 +96,9 @@ public class WHOLEthing {
 		});
 		txtWelcome.setBackground(Color.WHITE);
 		txtWelcome.setForeground(Color.BLACK);
-		txtWelcome.setFont(new Font("Helvetica", Font.BOLD, 34));
+		txtWelcome.setFont(new Font("Helvetica", Font.BOLD, 40));
 		txtWelcome.setEditable(false);
-		txtWelcome.setText("Welcome to the Advising Soultion");
+		txtWelcome.setText("Course Shark");
 		txtWelcome.setHorizontalAlignment(SwingConstants.CENTER);
 		txtWelcome.setBounds(105, 28, 714, 103);
 		frame.getContentPane().add(txtWelcome);
