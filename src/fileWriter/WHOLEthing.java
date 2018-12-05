@@ -9,10 +9,14 @@ import java.awt.print.PrinterException;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -216,58 +220,59 @@ public class WHOLEthing {
 						String userHomeFolder = System.getProperty("user.home") + "\\" + "Desktop\\Advising";
 						// System.out.println(userHomeFolder);
 						File major2 = new File(userHomeFolder, "CompSci.txt");
-						FileWriter fw = new FileWriter(new File(userHomeFolder, SetID + ".txt"));
-						BufferedWriter outFile = new BufferedWriter(fw);
-						outFile.write(SetID + "\r\n" + SetName + "\r\n" + grad);
-						outFile.write("\r\n" + major2);
-						outFile.close();
+						String dest = System.getProperty("user.home") + "\\" + "Desktop\\Advising\\Students";
+						File student = new File(dest, SetID + ".txt");
+						copyFileUsingStream(major2, student);
+
 					} catch (IOException ex) {
 					}
-				}
-				else if (maj=="Engineering") {
+				} else if (maj == "Engineering") {
 					try {
 						String userHomeFolder = System.getProperty("user.home") + "\\" + "Desktop\\Advising";
-						// System.out.println(userHomeFolder);
+
+						System.out.println(userHomeFolder);
 						File major2 = new File(userHomeFolder, "ENG.txt");
-						FileWriter fw = new FileWriter(new File(userHomeFolder, SetID + ".txt"));
-						BufferedWriter outFile = new BufferedWriter(fw);
-						outFile.write(SetID + "\r\n" + SetName + "\r\n" + grad);
-						outFile.write("\r\n" + major2);
-						outFile.close();
+						String dest = System.getProperty("user.home") + "\\" + "Desktop\\Advising\\Students";
+						File student = new File(dest, SetID + ".txt");
+						copyFileUsingStream(major2, student);
+
+						// FileWriter fw = new FileWriter(new File(userHomeFolder, SetID + ".txt"));
+						// FileReader fr = new FileReader(major2);
+						// BufferedWriter outFile = new BufferedWriter(fw);
+						// outFile.write(SetID + "\r\n" + SetName + "\r\n" + grad);
+						// int c = fr.read();
+						// fw.write("\r\n");
+						// while(c!=-1) {
+						// fw.write(c);
+						// c = fr.read();
+						// }
+						//
+						// outFile.close();}catch (IOException ex) {
 					} catch (IOException ex) {
 					}
-				}
-				else if(maj=="Construction Managment") {
+				} else if (maj == "Construction Managment") {
 					try {
-						
+
 						String userHomeFolder = System.getProperty("user.home") + "\\" + "Desktop\\Advising";
 						// System.out.println(userHomeFolder);
+
 						File major2 = new File(userHomeFolder, "CM.txt");
-						FileWriter fw = new FileWriter(new File(userHomeFolder, SetID + ".txt"),true);
-						FileReader fr = new FileReader(major2);
-						BufferedWriter outFile = new BufferedWriter(fw);
-						outFile.write(SetID + "\r\n" + SetName + "\r\n" + grad);
-						int c = fr.read();
-			            fw.write("\r\n");
-			            while(c!=-1) {
-			                fw.write(c);
-			                c = fr.read();
-			            }
-				
-						outFile.close();}
-					catch (IOException ex) {
+						String dest = System.getProperty("user.home") + "\\" + "Desktop\\Advising\\Students";
+						File student = new File(dest, SetID + ".txt");
+						copyFileUsingStream(major2, student);
+						
+
+						
+					} catch (IOException ex) {
 					}
-				}
-				else if(maj=="B.A. Computer Science") {
+				} else if (maj == "B.A. Computer Science") {
 					try {
 						String userHomeFolder = System.getProperty("user.home") + "\\" + "Desktop\\Advising";
 						// System.out.println(userHomeFolder);
 						File major2 = new File(userHomeFolder, "BACOMPsci.txt");
-						FileWriter fw = new FileWriter(new File(userHomeFolder, SetID + ".txt"));
-						BufferedWriter outFile = new BufferedWriter(fw);
-						outFile.write(SetID + "\r\n" + SetName + "\r\n" + grad);
-						outFile.write("\r\n" + major2);
-						outFile.close();
+						String dest = System.getProperty("user.home") + "\\" + "Desktop\\Advising\\Students";
+						File student = new File(dest, SetID + ".txt");
+						copyFileUsingStream(major2, student);
 					} catch (IOException ex) {
 					}
 				}
@@ -275,6 +280,23 @@ public class WHOLEthing {
 			}
 		}
 
+	}
+
+	private void copyFileUsingStream(File source, File dest) throws IOException {
+		InputStream is = null;
+		OutputStream os = null;
+		try {
+			is = new FileInputStream(source);
+			os = new FileOutputStream(dest);
+			byte[] buffer = new byte[1024];
+			int length;
+			while ((length = is.read(buffer)) > 0) {
+				os.write(buffer, 0, length);
+			}
+		} finally {
+			is.close();
+			os.close();
+		}
 	}
 
 	// opensframe for returnin student
