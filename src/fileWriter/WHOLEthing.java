@@ -220,7 +220,7 @@ public class WHOLEthing {
 						String userHomeFolder = System.getProperty("user.home") + "\\" + "Desktop\\Advising";
 						// System.out.println(userHomeFolder);
 						File major2 = new File(userHomeFolder, "CompSci.txt");
-						String dest = System.getProperty("user.home") + "\\" + "Desktop\\Advising\\Students";
+						String dest = System.getProperty("user.home") + "\\" + "Desktop\\Advising";
 						File student = new File(dest, SetID + ".txt");
 						copyFileUsingStream(major2, student);
 
@@ -238,7 +238,7 @@ public class WHOLEthing {
 
 						// FileWriter fw = new FileWriter(new File(userHomeFolder, SetID + ".txt"));
 						// FileReader fr = new FileReader(major2);
-						// BufferedWriter outFile = new BufferedWriter(fw);
+						// BufferedWriter outFile = new BuffferedWriter(fw);
 						// outFile.write(SetID + "\r\n" + SetName + "\r\n" + grad);
 						// int c = fr.read();
 						// fw.write("\r\n");
@@ -379,8 +379,13 @@ public class WHOLEthing {
 					IDNum = textField.getText();
 					String line = null;
 					FileReader file;
+					String userHomeFolder = System.getProperty("user.home") + "\\" + "Desktop\\Advising";
+					// System.out.println(userHomeFolder);
+
+					String dest = System.getProperty("user.home") + "\\" + "Desktop\\Advising\\Students";
+					File student = new File(dest, IDNum + ".txt");
 					try {
-						file = new FileReader(IDNum + ".txt");
+						file = new FileReader(student);
 						BufferedReader bufferedReader = new BufferedReader(file);
 						while ((line = bufferedReader.readLine()) != null) {
 							count++;
@@ -408,7 +413,7 @@ public class WHOLEthing {
 		public class update implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					String userHomeFolder = System.getProperty("user.home") + "\\" + "Desktop//Advising";
+					String userHomeFolder = System.getProperty("user.home") + "\\" + "Desktop\\Advising\\Students";
 					// System.out.println(userHomeFolder);
 					FileWriter fw3 = new FileWriter(new File(userHomeFolder, IDNum + ".txt"));
 					BufferedWriter outFile = new BufferedWriter(fw3);
